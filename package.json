@@ -1,6 +1,6 @@
 {
-  "name": "gcommit-cli",
-  "version": "1.0.1",
+  "name": "vcommit-cli",
+  "version": "1.0.0",
   "description": "自动化验证git commit 格式",
   "bin": "./index.js",
   "main": "index.js",

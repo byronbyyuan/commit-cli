@@ -31,7 +31,7 @@ if (arg[2] && arg[2] === 'init') {
     let userCommit = []
     let defalutType = p.rules['type-enum'][2].filter(item => item != "improvement")
     try {
-        userCommit = require(path.join(__dirname, './.commit.js'))
+        userCommit = require(path.join(__dirname, '../../.commit.js'))
 
     } catch (err) {
         userCommit = file.get('commit') || defalutType
@@ -136,13 +136,15 @@ if (arg[2] && arg[2] === 'init') {
             file.set("husky", husky)
             let scripts = file.get('scripts')
             let objects = Object.assign(scripts, {
-                "commit": answer.order === 'yes' ? 'git add . && cross-env ./node_modules/.bin/my-commit' : 'cross-env ./node_modules/.bin/my-commit'
+                "commit": answer.order === 'yes' ? 'git add . && cross-env npx vcommit-cli' : 'cross-env npx vcommit-cli'
             })
             file.save()
             console.log('分析依赖中...')
             let devDependencies = file.get('devDependencies')
             let dependencies = file.get('dependencies')
             let yilai = [
+                'prettier',
+                'eslint',
                 'husky',
                 'cross-env',
                 'cz-conventional-changelog',
@@ -158,17 +160,16 @@ if (arg[2] && arg[2] === 'init') {
                 console.log('开始安装依赖', `${npmName} i ${allYilai} --save-dev`)
                 // console.log(`正在安装 ${allYilai}---- `)
                 shell.exec(`${npmName} i ${allYilai} --save-dev`, {
-                    async: true
+                    async: false
                 })
-                // console.log('初始化完成...， 可以使用 npm run commit 命令代替git commit操作')
-            }
-            console.log('初始化完成 可以使用 npm run commit 命令代替git commit操作')
+                console.log('初始化完成...， 可以使用 npm run commit 命令代替git commit操作')
+            } 
         })
         .catch(console.error)
 } else {
     const bootstrap = require('commitizen/dist/cli/git-cz').bootstrap
     bootstrap({
-        cliPath: path.join(__dirname, '../node_modules/commitizen'),
+        cliPath: path.join(__dirname, '../commitizen'),
         // this is new
         config: {
             "path": "cz-conventional-changelog"
