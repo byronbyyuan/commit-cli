@@ -1,13 +1,13 @@
-# commit-cli
+# gcommit-cli
 自动化验证git commit 格式
 
-# commit-cli
+# gcommit-cli
 
 ### 前言
 在多人协作项目中，如果代码风格统一、代码提交信息的说明准确，那么在后期协作以及Bug处理时会更加方便。Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。一般来说，commit message 应该清晰明了，说明本次提交的目的。
 
 Commit message 的作用
-
+ 
 * 提供更多的历史信息，方便快速浏览
 * 过滤某些commit（比如文档改动），便于快速查找信息
 * 直接从commit生成Change log
@@ -26,22 +26,22 @@ Commit message 格式为
 // 空一行
 <footer>
 ```
-为了符合规范在这里 ```commit-cli``` 将做了一下几件事
+为了符合规范在这里 ```gcommit-cli``` 将做了一下几件事
 * 在git commit 提交时对commit message格式验证,如果不符合则终止commit。
 * 为了方便输入格式 加入了终端自动化流程选择格式信息。
 * 在初始化阶段可以选择对提交对代码 配置代码格式化验证 比如在commit提交时通过配置eslit --fix 来修复代码不规范 如果修复失败则终止。
 * 将所有用到对npm包依赖及基本配置全部自动生成。
 
-# commit-cli 使用
+# gcommit-cli 使用
 ```
- // 下载 commit-cli
- npm install commit-cli
+ // 下载 gcommit-cli
+ npm install gcommit-cli
  
  // 初始化依赖包及配置项
- npx commit-cli init
+ npx gcommit-cli init
  
  // 初始化
- npm commit-cli init
+ npm gcommit-cli init
  
  // 使用自动化选择message 
  
