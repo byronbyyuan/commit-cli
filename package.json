@@ -1,0 +1,33 @@
+{
+  "name": "commit-cli",
+  "version": "1.0.0",
+  "description": "自动化验证git commit 格式",
+  "bin": "./index.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/14138993/commit-cli.git"
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "edit-json-file": "^1.4.0",
+    "enquirer": "^2.3.5"
+ },  
+  "keywords": [
+    "commit",
+    "msg",
+    "git",
+    "commit"
+  ],
+  "author": "yby14138993",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/14138993/commit-cli/issues"
+  },
+  "homepage": "https://github.com/14138993/commit-cli#readme"
+}
